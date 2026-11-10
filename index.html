@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOYTECH CONSULTANTS & GENERAL SUPPLIES LTD (JCGSL)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           COLOR PALETTE & DESIGN SYSTEM
+           Derived from JCGSL Logo & Corporate Standards
+           ========================================== */
+        :root {
+            --primary-blue: #0b3c5d;
+            --primary-blue-hover: #07273d;
+            --accent-teal: #1f4e5b;
+            --accent-teal-light: #2d5a57;
+            --brand-drop: #003399;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --card-border: #e2e8f0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-md: 0 10px 25px -5px rgba(11, 60, 93, 0.08);
+            --shadow-lg: 0 20px 30px -10px rgba(11, 60, 93, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Components */
+        .container {
+            width: 90%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        .text-center { text-align: center; }
+
+        .tagline-badge {
+            display: inline-block;
+            background: rgba(11, 60, 93, 0.08);
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            line-height: 1.25;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(11, 60, 93, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(11, 60, 93, 0.35);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           1. TOP HEADER & NAVBAR
+           ========================================== */
+        .top-bar {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-info {
+            display: flex;
+            gap: 25px;
+        }
+
+        .top-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar {
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        /* Vector Logo matching Company Branding */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 44px;
+            height: 44px;
+            position: relative;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent-teal);
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .brand-sub {
+            font-size: 0.65rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+            border: 1px solid var(--primary-blue);
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ==========================================
+           2. HERO SECTION
+           ========================================== */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #0b3c5d 0%, #1f4e5b 100%);
+            color: #ffffff;
+            padding: 110px 0 130px 0;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-highlight {
+            color: #4dd0e1;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn-white {
+            background-color: #ffffff;
+            color: var(--primary-blue);
+        }
+
+        .hero-btn-white:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .hero-btn-outline {
+            background-color: rgba(255,255,255,0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .hero-btn-outline:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 12px;
+        }
+
+        .hero-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .hero-list-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .hero-icon-check {
+            width: 22px;
+            height: 22px;
+            background: rgba(77, 208, 225, 0.2);
+            color: #4dd0e1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Stat Counter Section */
+        .stats-bar {
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 35px 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--card-border);
+        }
+
+        .stat-item {
+            text-align: center;
+            border-right: 1px solid var(--card-border);
+            padding: 0 15px;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           3. ABOUT US SECTION
+           ========================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-text-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-feature-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--accent-teal);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-feature-box h4 {
+            color: var(--text-main);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .about-feature-box p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        .about-graphic {
+            background: linear-gradient(145deg, #e0f2fe, #f0f9ff);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            position: relative;
+            border: 1px solid var(--card-border);
+        }
+
+        .graphic-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .graphic-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .graphic-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(11, 60, 93, 0.1);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ==========================================
+           4. CORE SERVICES SECTION (3 PILLARS)
+           ========================================== */
+        .services-section {
+            background: #ffffff;
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            margin-top: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .pillar-icon-badge {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pillar-title {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(11, 60, 93, 0.2);
+            background: #ffffff;
+        }
+
+        .service-card-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(31, 78, 91, 0.1);
+            color: var(--accent-teal);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-card h4 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #e2e8f0;
+            color: var(--text-main);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           5. WHY CHOOSE US
+           ========================================== */
+        .why-us {
+            background: linear-gradient(to bottom, #f8fafc, #edf2f7);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .why-card {
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .why-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+
+        .why-card h4 {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================
+           6. CONTACT US SECTION
+           ========================================== */
+        .contact-section {
+            background: #ffffff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 50px;
+        }
+
+        .contact-info-panel {
+            background: var(--primary-blue);
+            color: #ffffff;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-info-panel h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info-panel p {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-item-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item-text h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item-text p {
+            margin-bottom: 0;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .contact-form-container {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            background: #ffffff;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(11, 60, 93, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Message Box Notification (Replaces alert) */
+        .toast-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            margin-top: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* ==========================================
+           7. FOOTER
+           ========================================== */
+        footer {
+            background: #071927;
+            color: #94a3b8;
+            padding: 70px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.05);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           RESPONSIVE STYLES
+           ========================================== */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-card {
+                margin-top: 20px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .stat-item {
+                border-right: none;
+                border-bottom: 1px solid var(--card-border);
+                padding-bottom: 15px;
+            }
+            .stat-item:nth-child(3), .stat-item:nth-child(4) {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: #ffffff;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 40px 20px;
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-info">
+                <div class="top-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>+254 725 216 489 / +254 715 841 983</span>
+                </div>
+                <div class="top-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>joytechconsultant@gmail.com</span>
+                </div>
+            </div>
+            <div class="top-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Nairobi, Kenya</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <!-- SVG Water Drop Logo replica based on JCGSL identity -->
+                <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 5 C50 5 15 45 15 70 C15 89.33 30.67 105 50 105 C69.33 105 85 89.33 85 70 C85 45 50 5 Z" fill="#003399"/>
+                    <path d="M50 15 C50 15 72 50 72 70 C72 82.15 62.15 92 50 92 C37.85 92 28 82.15 28 70 C28 50 50 15 Z" fill="#ffffff"/>
+                    <path d="M50 25 C50 25 35 55 35 70 C35 78.28 41.72 85 50 85 C58.28 85 65 78.28 65 70 C65 55 50 25 Z" fill="#0b3c5d"/>
+                </svg>
+                <div class="brand-text">
+                    <span class="brand-name">JCGSL</span>
+                    <span class="brand-sub">JOYTECH CONSULTANTS & SUPPLIES</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#iso-consultancy" class="nav-link">ISO Consultancy</a></li>
+                    <li><a href="#surveys" class="nav-link">Surveys & Audits</a></li>
+                    <li><a href="#general-supplies" class="nav-link">General Supplies</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#contact" class="btn btn-primary" style="padding: 10px 20px; font-size:0.9rem;">Get a Quote</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b3c5d" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="tagline-badge" style="background: rgba(255,255,255,0.15); color: #ffffff;">Established 2021 | Nairobi, Kenya</span>
+                <h1 class="hero-title">Empowering Excellence Through <span class="hero-highlight">ISO Consultancy</span> & Comprehensive Supplies</h1>
+                <p class="hero-description">Your trusted partner in establishing internal mechanisms that reduce business risks, enhance operational efficiency, and provide top-tier general corporate supplies.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn hero-btn-white">Explore Services</a>
+                    <a href="#contact" class="btn hero-btn-outline">Contact Our Team</a>
+                </div>
+            </div>
+            <div>
+                <div class="hero-card">
+                    <h3 class="hero-card-title">Core Specializations</h3>
+                    <div class="hero-list">
+                        <div class="hero-list-item">
+                            <div class="hero-icon-check">✓</div>
+                            <span>ISO Management Systems (QMS, EMS, OHS, ISMS)</span>
+                        </div>
+                        <div class="hero-list-item">
+                            <div class="hero-icon-check">✓</div>
+                            <span>Risk Assessments & 2nd Party Audits</span>
+                        </div>
+                        <div class="hero-list-item">
+                            <div class="hero-icon-check">✓</div>
+                            <span>Workplace, Gender & Perception Surveys</span>
+                        </div>
+                        <div class="hero-list-item">
+                            <div class="hero-icon-check">✓</div>
+                            <span>ICT Hardware, Maintenance & Servicing</span>
+                        </div>
+                        <div class="hero-list-item">
+                            <div class="hero-icon-check">✓</div>
+                            <span>Building Supplies & Office Contracting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">2021</div>
+                    <div class="stat-label">Year Established</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">ISO Standards Covered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Compliance Commitment</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">360°</div>
+                    <div class="stat-label">Corporate Solutions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text-content">
+                    <span class="tagline-badge">About JCGSL</span>
+                    <h2 class="section-title">Bridging Risk Reduction With Peak Performance</h2>
+                    <p><strong>JOYTECH CONSULTANT AND GENERAL SUPPLIES LTD</strong> is a registered firm of experts and consultants based in Nairobi, Kenya. Founded in 2021, we are a dynamic team driven by passion and expertise to assist organizations in mitigating operational risks while maximizing efficiency.</p>
+                    <p>We work closely with client organizations locally and regionally to establish, develop, implement, and maintain international management systems, conduct strategic research, and supply quality corporate resources.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature-box">
+                            <h4>Risk Management</h4>
+                            <p>Proactive mitigation framework using ISO 31000 standards.</p>
+                        </div>
+                        <div class="about-feature-box">
+                            <h4>Quality Assurance</h4>
+                            <p>End-to-end audits and second-party compliance reviews.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-graphic">
+                    <div class="graphic-card">
+                        <div class="graphic-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <h4>Certified Excellence</h4>
+                            <p style="font-size:0.85rem; color: var(--text-muted);">Expert guidance across ISO 9001, 14001, 27001, 45001 & 22000 standards.</p>
+                        </div>
+                    </div>
+
+                    <div class="graphic-card">
+                        <div class="graphic-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </div>
+                        <div>
+                            <h4>Turnkey Supply Chain</h4>
+                            <p style="font-size:0.85rem; color: var(--text-muted);">From construction materials to ICT equipment and office stationary.</p>
+                        </div>
+                    </div>
+
+                    <div class="graphic-card">
+                        <div class="graphic-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div>
+                            <h4>Workforce Insights</h4>
+                            <p style="font-size:0.85rem; color: var(--text-muted);">Comprehensive surveys on employee satisfaction, gender mainstreaming, and safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding services-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <span class="tagline-badge">Our Comprehensive Portfolio</span>
+                <h2 class="section-title">Integrated Consultancy & Supply Solutions</h2>
+                <p class="section-subtitle">We deliver tailored solutions across three distinct operational pillars designed to strengthen organizational infrastructure.</p>
+            </div>
+
+            <!-- Pillar A: ISO Consultancy -->
+            <div id="iso-consultancy">
+                <div class="pillar-header">
+                    <div class="pillar-icon-badge">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <h3 class="pillar-title">Pillar A: ISO Standards & Management Consultancy</h3>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <h4>Quality Management Systems (QMS)</h4>
+                            <p>Development, training, implementation, and auditing based on the ISO 9001:2015 standard to optimize workflow efficiency.</p>
+                        </div>
+                        <div class="service-tags">
+                            <span class="tag">ISO 9001:2015</span>
+                            <span class="tag">Quality Audits</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <h4>Environmental Management (EMS)</h4>
+                            <p>Environmental Impact Assessments (EIA), Strategic Environmental Assessments (SEA), ISO 14001, and EMAS audits.</p>
+                        </div>
+                        <div class="service-tags">
+                            <span class="tag">ISO 14000</span>
+                            <span class="tag">EIA / SEA</span>
+                            <span class="tag">EMAS</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <h4>Occupational Health & Safety (OHS)</h4>
+                            <p>OHSAS 18000, ISO 45001, BS8800, hazard identification, and workplace risk assessments for absolute safety compliance.</p>
+                        </div>
+                        <div class="service-tags">
+                            <span class="tag">ISO 45001</span>
+                            <span class="tag">OHSAS 18000</span>
+                            <span class="tag">NOSA</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <h4>Information Security & Records</h4>
+                            <p>ISO 27001 (ISMS) security controls, ISO 15489 records management, statistical analysis, and Integrated Management Information Systems.</p>
+                        </div>
+                        <div class="service-tags">
+                            <span class="tag">ISO 27000</span>
+                            <span class="tag">ISO 15489</span>
+                            <span class="tag">IT Security</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg>
+                            </div>
+                            <h4>Food & Product Safety</h4>
+                            <p>HACCP principles, ISO/FSSC 22000, BRC, GLOBALGAP protocols, Good Manufacturing (GMP), and Hygiene Practices (GHP).</p>
+                        </div>
+                        <div class="service-tags">
+                            <span class="tag">ISO 22000</span>
+                            <span class="tag">HACCP</span>
+                            <span class="tag">GLOBALGAP</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                            </div>
+                            <h4>Risk Management & Forest Stewardship</h4>
+                            <p>ISO 31000 risk framework implementation, Forest Stewardship Council (FSC) certifications, Chain of Custody (CoC), and social responsibility.</p>
+                        </div>
+                        <div class="service-tags">
+                            <span class="tag">ISO 31000</span>
+                            <span class="tag">FSC / CoC</span>
+                            <span class="tag">Social Audits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar B: Research & Surveys -->
+            <div id="surveys" style="margin-top: 50px;">
+                <div class="pillar-header">
+                    <div class="pillar-icon-badge" style="background-color: var(--accent-teal);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3 class="pillar-title">Pillar B: Surveys & Organizational Research</h3>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                            </div>
+                            <h4>Satisfaction & Work Environment</h4>
+                            <p>Employee engagement, customer satisfaction index, and work environment quality assessments designed for data-driven decisions.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <h4>Institutional Integrity Surveys</h4>
+                            <p>Corruption incidence and perception surveys, access to information evaluations, and service delivery improvement systems.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            </div>
+                            <h4>Social Mainstreaming & Health</h4>
+                            <p>Gender mainstreaming, disability mainstreaming, and workplace alcohol, drug & substance abuse prevalence surveys.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar C: General Supplies -->
+            <div id="general-supplies" style="margin-top: 50px;">
+                <div class="pillar-header">
+                    <div class="pillar-icon-badge" style="background-color: var(--accent-teal-light);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <h3 class="pillar-title">Pillar C: General Supplies & Contracting</h3>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                            </div>
+                            <h4>Office Stationeries & Uniforms</h4>
+                            <p>Full-scale supply of general office stationery, cleaning materials, staff uniforms, and custom school apparel.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <h4>ICT Maintenance & Hardware</h4>
+                            <p>Supply, repair, and ongoing servicing of enterprise servers, computers, laptops, printers, scanners, and peripheral equipment.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
+                            <h4>Building & Construction Materials</h4>
+                            <p>High-grade construction supplies including timber, fencing posts, cement, structural metals, and iron sheets.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                            </div>
+                            <h4>General Contracting & Renovations</h4>
+                            <p>Building repair, interior/exterior design, plumbing maintenance, and complete office furniture restoration.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <h4>Dry Foods & Catering Provision</h4>
+                            <p>Supply of premium cereals, dry food stuff, and professional corporate catering services tailored to organizational needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <div class="service-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
+                            </div>
+                            <h4>Cleaning & Facility Care</h4>
+                            <p>Comprehensive commercial cleaning services and supply of high-efficiency industrial sanitation agents.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section-padding why-us">
+        <div class="container">
+            <div class="text-center">
+                <span class="tagline-badge">Our Advantage</span>
+                <h2 class="section-title">Why Partner With JCGSL?</h2>
+                <p class="section-subtitle">We blend young, energetic professional expertise with strict adherence to national and international compliance standards.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h4>Passionate Experts</h4>
+                    <p>A dynamic team of qualified lead auditors and consultants dedicated to operational excellence.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h4>ISO Standard Assurance</h4>
+                    <p>In-depth mastery of ISO frameworks ensuring seamless system certification and implementation.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </div>
+                    <h4>Turnkey Capabilities</h4>
+                    <p>Single-window partner for both high-level management consultancy and essential physical supplies.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h4>Risk Reduction Focus</h4>
+                    <p>Proven strategies that minimize corporate exposure while optimizing resource utilization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Info Side -->
+                <div class="contact-info-panel">
+                    <div>
+                        <h3>Get In Touch</h3>
+                        <p>Reach out to our expert consultants today for a quote or inquiry regarding our ISO management and supply services.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div class="contact-item-text">
+                                    <h5>Head Office</h5>
+                                    <p>Business Arcade, 2nd Floor, New Pumwani Road<br>P.O Box 53731-00200, Nairobi, Kenya</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div class="contact-item-text">
+                                    <h5>Phone Numbers</h5>
+                                    <p>0725 216 489 / 0715 841 983</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div class="contact-item-text">
+                                    <h5>Email Address</h5>
+                                    <p>joytechconsultant@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0;">Business Hours: Monday - Friday (8:00 AM - 5:00 PM EAT)</p>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="contact-form-container">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-weight:700;">Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" placeholder="e.g. John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" placeholder="e.g. john@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="07XX XXX XXX">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Service Required</label>
+                                <select class="form-control">
+                                    <option value="iso">ISO Consultancy & Auditing</option>
+                                    <option value="surveys">Surveys & Research</option>
+                                    <option value="ict">ICT Supplies & Maintenance</option>
+                                    <option value="construction">Building & Construction Materials</option>
+                                    <option value="general">General Office Supplies</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message / Details</label>
+                            <textarea class="form-control" placeholder="Tell us how we can help your business..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+                        <div class="toast-message" id="toast">Message submitted successfully! We will contact you shortly.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>JCGSL</h3>
+                    <p>JOYTECH CONSULTANTS & GENERAL SUPPLIES LTD is a registered firm of experts dedicated to risk reduction, operational excellence, and quality supplies.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#iso-consultancy">ISO Standards</a></li>
+                        <li><a href="#surveys">Surveys & Audits</a></li>
+                        <li><a href="#general-supplies">General Supplies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Standards</h4>
+                    <ul>
+                        <li><a href="#iso-consultancy">ISO 9001:2015 (QMS)</a></li>
+                        <li><a href="#iso-consultancy">ISO 14001 (EMS)</a></li>
+                        <li><a href="#iso-consultancy">ISO 45001 (OHS)</a></li>
+                        <li><a href="#iso-consultancy">ISO 27000 (ISMS)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contact Info</h4>
+                    <p style="margin-bottom:8px;">Business Arcade, 2nd Floor</p>
+                    <p style="margin-bottom:8px;">New Pumwani Road, Nairobi</p>
+                    <p style="margin-bottom:8px;">Phone: +254 725 216 489</p>
+                    <p>Email: joytechconsultant@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 JOYTECH CONSULTANTS & GENERAL SUPPLIES LTD. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation & Form Handling JS -->
+    <script>
+        // Toggle Mobile Menu
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Form submission handling with inline toast notice
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            toast.style.display = 'block';
+            contactForm.reset();
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
